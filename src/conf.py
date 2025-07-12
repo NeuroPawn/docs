@@ -39,3 +39,23 @@ extensions = [
     # ...existing extensions...
     'myst_parser',
 ]
+
+# MyST-Parser configuration
+myst_enable_extensions = [
+    "colon_fence",      # ::: instead of ``` for directives
+    "deflist",          # Definition lists
+    "tasklist",         # - [ ] and - [x] checkboxes
+    "attrs_inline",     # {.class #id} syntax
+    "html_image",       # <img> tags with more control
+    "replacements",     # Smart quotes and dashes
+    "smartquotes",      # Automatic quote formatting
+]
+
+# Enable heading anchors for direct linking
+myst_heading_anchors = 3  # Generate anchors for h1-h3
+
+# External links open in new tab
+myst_links_external_new_tab = True
+
+# URL schemes to recognize as external
+myst_url_schemes = ("http", "https", "mailto", "ftp")
