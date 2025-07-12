@@ -12,11 +12,11 @@ version = '0.1.0'
 # -- General configuration
 
 extensions = [
-    'sphinx.ext.duration',
-    'sphinx.ext.doctest',
-    'sphinx.ext.autodoc',
-    'sphinx.ext.autosummary',
-    'sphinx.ext.intersphinx',
+    'sphinx.ext.duration', # Measures build times for each document.
+    'sphinx.ext.doctest', # Allows running Python code in your docs as tests.
+    'sphinx.ext.autodoc', # Automatically includes docstrings from your Python code.
+    'sphinx.ext.autosummary', # Generates summary tables for modules/classes/functions.
+    'sphinx.ext.intersphinx', # Links to other project's documentation (e.g., Python’s stdlib docs).
 ]
 
 intersphinx_mapping = {
@@ -25,10 +25,9 @@ intersphinx_mapping = {
 }
 intersphinx_disabled_domains = ['std']
 
-templates_path = ['_templates']
+templates_path = ['_templates'] # not being used
 
 # -- Options for HTML output
-
 html_theme = 'sphinx_rtd_theme'
 
 # -- Options for EPUB output
