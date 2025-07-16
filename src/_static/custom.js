@@ -20,4 +20,18 @@ document.addEventListener("DOMContentLoaded", function () {
     icon.classList.remove('fa-arrow-circle-right');
     icon.classList.add('fa-arrow-right');
   });
+
+  const observer = new MutationObserver(function(mutations) {
+      const adElement = document.getElementById('readthedocs-ea-text-fixedfooter-sphinx');
+      if (adElement) {
+          adElement.style.display = 'none';
+          console.log('Read the Docs ad hidden');
+      }
+  });
+
+  // Start observing
+  observer.observe(document.body, {
+      childList: true,
+      subtree: true
+  });
 });

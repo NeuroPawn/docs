@@ -2,6 +2,7 @@
 .wy-nav-side,
 .wy-nav-top {
     background: #17161e;
+    padding-bottom: 0rem;
 }
 
 #search-results .context {
