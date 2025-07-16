@@ -23,21 +23,59 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Function to hide Read the Docs ad
   function hideReadTheDocsAd() {
-    const adElement = document.getElementById('readthedocs-ea-text-fixedfooter-sphinx');
-    if (adElement) {
-      adElement.style.display = 'none';
-      console.log('Read the Docs ad hidden');
-      return true; // Found and hidden
-    }
-    return false; // Not found yet
+    // Try multiple selectors to catch the ad
+    const selectors = [
+      '#readthedocs-ea-text-fixedfooter-sphinx',
+      '[data-ea-publisher="readthedocs"]',
+      '[data-ea-type="text"]',
+      '.ea-placement',
+      '[id^="readthedocs-ea-"]'
+    ];
+    
+    let found = false;
+    selectors.forEach(selector => {
+      const elements = document.querySelectorAll(selector);
+      elements.forEach(element => {
+        if (element && element.style.display !== 'none') {
+          element.style.display = 'none';
+          console.log('Read the Docs ad hidden using selector:', selector);
+          found = true;
+        }
+      });
+    });
+    
+    return found;
   }
+
+  // Add CSS to hide ads immediately when they appear
+  const style = document.createElement('style');
+  style.textContent = `
+    #readthedocs-ea-text-fixedfooter-sphinx,
+    [data-ea-publisher="readthedocs"],
+    [data-ea-type="text"],
+    .ea-placement {
+      display: none !important;
+    }
+  `;
+  document.head.appendChild(style);
 
   // Check immediately on DOM load
   hideReadTheDocsAd();
 
   // Set up MutationObserver to watch for dynamically added content
   const observer = new MutationObserver(function(mutations) {
-    hideReadTheDocsAd();
+    mutations.forEach(function(mutation) {
+      mutation.addedNodes.forEach(function(node) {
+        if (node.nodeType === 1) { // Element node
+          // Check if the added node is an ad or contains an ad
+          if (node.id === 'readthedocs-ea-text-fixedfooter-sphinx' || 
+              node.hasAttribute('data-ea-publisher') ||
+              node.querySelector && node.querySelector('[data-ea-publisher="readthedocs"]')) {
+            hideReadTheDocsAd();
+          }
+        }
+      });
+    });
   });
 
   // Start observing
@@ -51,8 +89,9 @@ document.addEventListener("DOMContentLoaded", function () {
     if (hideReadTheDocsAd()) {
       clearInterval(pollInterval); // Stop polling once found
     }
-  }, 100); // Check every 100ms
+    console.log('Checking for Read the Docs ad...');
+  }, 50); // Check every 50ms for faster response
 
-  // Stop polling after 10 seconds to avoid infinite checking
-  setTimeout(() => clearInterval(pollInterval), 10000);
+  // Stop polling after 15 seconds to avoid infinite checking
+  setTimeout(() => clearInterval(pollInterval), 15000);
 });
