@@ -21,17 +21,38 @@ document.addEventListener("DOMContentLoaded", function () {
     icon.classList.add('fa-arrow-right');
   });
 
+  // Function to hide Read the Docs ad
+  function hideReadTheDocsAd() {
+    const adElement = document.getElementById('readthedocs-ea-text-fixedfooter-sphinx');
+    if (adElement) {
+      adElement.style.display = 'none';
+      console.log('Read the Docs ad hidden');
+      return true; // Found and hidden
+    }
+    return false; // Not found yet
+  }
+
+  // Check immediately on DOM load
+  hideReadTheDocsAd();
+
+  // Set up MutationObserver to watch for dynamically added content
   const observer = new MutationObserver(function(mutations) {
-      const adElement = document.getElementById('readthedocs-ea-text-fixedfooter-sphinx');
-      if (adElement) {
-          adElement.style.display = 'none';
-          console.log('Read the Docs ad hidden');
-      }
+    hideReadTheDocsAd();
   });
 
   // Start observing
   observer.observe(document.body, {
-      childList: true,
-      subtree: true
+    childList: true,
+    subtree: true
   });
+
+  // Backup polling approach in case MutationObserver misses it
+  const pollInterval = setInterval(() => {
+    if (hideReadTheDocsAd()) {
+      clearInterval(pollInterval); // Stop polling once found
+    }
+  }, 100); // Check every 100ms
+
+  // Stop polling after 10 seconds to avoid infinite checking
+  setTimeout(() => clearInterval(pollInterval), 10000);
 });
