@@ -1,0 +1,3 @@
+# Signal Processing API
+
+### `apply_filter(type, low, high)`...

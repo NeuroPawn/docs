@@ -1,0 +1,3 @@
+# Plugin Guide
+
+Create a new processing plugin...

@@ -1,0 +1,3 @@
+# Quickstart Guide
+
+1. Charge your EEG headset...

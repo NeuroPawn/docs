@@ -1,10 +1,12 @@
+import datetime
+
 # Configuration file for the Sphinx documentation builder.
 
 # -- Project information
 
-project = 'Lumache'
-copyright = '2021, Graziella'
-author = 'Graziella'
+project = 'NeuroPawn'
+copyright = f"{datetime.datetime.now().year}, NeuroPawn Biotechnologies Inc."
+author = 'NeuroPawn Biotechnologies Inc.'
 
 release = '0.1'
 version = '0.1.0'
@@ -29,6 +31,27 @@ templates_path = ['_templates'] # not being used
 
 # -- Options for HTML output
 html_theme = 'sphinx_rtd_theme'
+
+# Add this to tell Sphinx where to find static files
+html_static_path = ['_static']
+
+# Set the path to the logo
+html_logo = '_static/horizontal_logo.png'
+
+html_css_files = [
+    'custom.css',
+]
+
+html_js_files = [
+    'custom.js',
+]
+
+html_theme_options = {
+    'logo_only': True,
+    'display_version': False,
+    'repository_url': 'https://github.com/NeuroPawn',
+    'use_repository_button': True,
+}
 
 # -- Options for EPUB output
 epub_show_urls = 'footnote'

@@ -1,0 +1,3 @@
+# Streaming EEG Data
+
+Use the `start_stream()` method...

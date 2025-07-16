@@ -1,0 +1,51 @@
+.wy-side-nav-search,
+.wy-nav-side,
+.wy-nav-top {
+    background: #17161e;
+}
+
+#search-results .context {
+    color: #17161e;
+}
+
+.wy-menu.wy-menu-vertical .caption-text {
+    color: #f0e0c0;
+}
+
+.wy-breadcrumbs {
+    display: none !important;
+}
+
+a, a:visited {
+    color: #b57e6e !important; /* Example: bright blue for links */
+}
+a:hover, a:active {
+    color: #ffb86c !important; /* Example: orange on hover/active */
+}
+
+.wy-nav-content, .wy-nav-content-wrap {
+    background-color: #f0e0c0 !important;
+}
+
+body, body .caption-text{
+    font-family: 'Nunito Sans', sans-serif;
+    color: #16161c
+}
+
+a.btn.btn-neutral.float-left, a.btn.btn-neutral.float-right {
+    font-family: 'Nunito Sans', sans-serif !important;
+    color: #16161c !important;
+}
+
+hr {
+    border-color: #17161e !important;
+}
+
+.rst-content h1,
+.rst-content h2,
+.rst-content h3,
+.rst-content h4,
+.rst-content h5,
+.rst-content h6 {
+    font-family: 'Nunito Sans', sans-serif;
+}

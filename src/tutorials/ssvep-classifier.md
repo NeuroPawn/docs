@@ -1,0 +1,3 @@
+# SSVEP Classification
+
+Use canonical correlation analysis...

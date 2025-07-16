@@ -1,0 +1,3 @@
+# P300 Speller Tutorial
+
+Use target highlighting + event markers...

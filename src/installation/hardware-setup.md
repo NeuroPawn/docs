@@ -1,0 +1,3 @@
+# EEG Hardware Setup
+
+## Electrode Placement...

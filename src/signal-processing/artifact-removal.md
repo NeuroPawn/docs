@@ -1,0 +1,3 @@
+# Artifact Removal
+
+- Use ICA to remove eye blinks...

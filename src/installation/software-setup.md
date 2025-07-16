@@ -1,0 +1,3 @@
+# EEG Software Setup
+
+## Python Setup...

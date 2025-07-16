@@ -1,0 +1,3 @@
+# Filtering EEG Data
+
+NeuroSense provides built-in filters...
